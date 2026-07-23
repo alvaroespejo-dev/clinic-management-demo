@@ -1,0 +1,96 @@
+{
+  "common": {
+    "appName": "AEspejo Clinic",
+    "save": "Save", "cancel": "Cancel", "delete": "Delete", "edit": "Edit",
+    "create": "New", "search": "Search...", "actions": "Actions", "loading": "Loading...",
+    "confirmDelete": "Delete this record?", "yes": "Yes", "no": "No",
+    "logout": "Log out", "language": "Language", "noData": "No records",
+    "page": "Page", "of": "of", "previous": "Previous", "next": "Next",
+    "includeInactive": "Include inactive", "active": "Active", "inactive": "Inactive",
+    "required": "Required", "add": "Add", "remove": "Remove",
+    "close": "Close", "dismissNotification": "Dismiss notification",
+    "closeSidebar": "Close sidebar", "toggleSidebar": "Toggle sidebar"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go to Dashboard",
+    "goBack": "Go Back"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "message": "An unexpected error occurred. Please try refreshing the page.",
+    "retry": "Try again"
+  },
+  "crud": {
+    "emptyMessage": "No records found. Create one to get started.",
+    "createNew": "Create New",
+    "unsavedChanges": "You have unsaved changes",
+    "createSuccess": "Record created successfully",
+    "updateSuccess": "Record updated successfully",
+    "deleteSuccess": "Record deleted successfully",
+    "discardTitle": "Discard changes",
+    "discardMessage": "You have unsaved changes. Are you sure you want to close?",
+    "discard": "Discard",
+    "keepEditing": "Keep editing",
+    "deleteTitle": "Delete record",
+    "deleteConfirmNamed": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+    "deleteConfirm": "Are you sure you want to delete this record? This action cannot be undone."
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Configure your clinic settings and branding",
+    "logo": "Clinic Logo",
+    "uploadLogo": "Upload Logo",
+    "clinicName": "Clinic Name",
+    "clinicNamePlaceholder": "Your clinic name",
+    "nameRequired": "Clinic name is required",
+    "saveSuccess": "Configuration saved successfully",
+    "saveError": "Error saving configuration",
+    "saveChanges": "Save Changes",
+    "saving": "Saving"
+  },
+  "login": {
+    "title": "Sign in", "subtitle": "Access your clinic",
+    "email": "Email", "password": "Password", "submit": "Sign in",
+    "error": "Invalid credentials"
+  },
+  "nav": {
+    "dashboard": "Home",
+    "groupOrg": "Organization", "branches": "Branches", "rooms": "Rooms", "users": "Users", "professionals": "Professionals",
+    "groupPatients": "Patients", "patients": "Patients", "patientAllergies": "Allergies", "medicalConditions": "Medical conditions", "odontograms": "Odontograms", "toothRecords": "Tooth records",
+    "groupClinical": "Clinical", "appointments": "Appointments", "appointmentDetails": "Appointment details", "treatmentPlans": "Treatment plans", "treatmentPlanItems": "Plan items",
+    "groupBilling": "Billing", "invoices": "Invoices", "payments": "Payments",
+    "groupCatalog": "Catalog", "services": "Services",
+    "groupSystem": "System", "auditLogs": "Audit log", "settings": "Settings"
+  },
+  "fields": {
+    "name": "Name", "address": "Address", "phone": "Phone", "email": "Email", "isActive": "Active",
+    "branchId": "Branch", "branchName": "Branch", "roomId": "Room", "patientId": "Patient", "professionalId": "Professional",
+    "serviceId": "Service", "userId": "User", "invoiceId": "Invoice", "odontogramId": "Odontogram",
+    "code": "Code", "defaultPrice": "Base price", "firstName": "First name", "lastName": "Last name",
+    "password": "Password", "role": "Role", "preferredLanguage": "Language", "dateOfBirth": "Date of birth",
+    "gender": "Gender", "documentType": "Document type", "documentNumber": "Document number",
+    "bloodType": "Blood type", "emergencyContactName": "Emergency contact", "emergencyContactPhone": "Emergency phone",
+    "notes": "Notes", "substance": "Substance", "severity": "Severity", "licenseNumber": "License",
+    "specialty": "Specialty", "color": "Color", "toothNumber": "Tooth (FDI)", "surface": "Surface",
+    "status": "Status", "scheduledAt": "Date & time", "durationMinutes": "Duration (min)", "cancelReason": "Cancel reason",
+    "quantity": "Quantity", "unitPrice": "Unit price", "estimatedPrice": "Estimated price", "title": "Title",
+    "description": "Description", "appointmentId": "Appointment", "treatmentPlanId": "Plan", "appointmentDetailId": "Appointment detail",
+    "invoiceNumber": "Invoice number", "issueDate": "Issue date", "totalAmount": "Total", "paidAmount": "Paid",
+    "amount": "Amount", "method": "Method", "paidAt": "Paid at", "reference": "Reference",
+    "category": "Category", "languageCode": "Language", "createdAt": "Created", "tableName": "Table", "recordId": "Record", "action": "Action", "changedAt": "Date"
+  },
+  "UserRole": { "Admin": "Admin", "Dentist": "Dentist", "Assistant": "Assistant", "Receptionist": "Receptionist" },
+  "Gender": { "Male": "Male", "Female": "Female", "Other": "Other" },
+  "DocumentType": { "NationalId": "National ID", "Passport": "Passport", "Other": "Other" },
+  "AllergySeverity": { "Mild": "Mild", "Moderate": "Moderate", "Severe": "Severe" },
+  "ToothSurface": { "Buccal": "Buccal", "Lingual": "Lingual", "Mesial": "Mesial", "Distal": "Distal", "Occlusal": "Occlusal", "Full": "Full" },
+  "ToothStatus": { "Healthy": "Healthy", "Caries": "Cavity", "Filled": "Filled", "Extracted": "Extracted", "Crown": "Crown", "Implant": "Implant", "RootCanal": "Root canal", "Missing": "Missing" },
+  "AppointmentStatus": { "Scheduled": "Scheduled", "Confirmed": "Confirmed", "InProgress": "In progress", "Completed": "Completed", "Cancelled": "Cancelled", "NoShow": "No show" },
+  "TreatmentPlanStatus": { "Draft": "Draft", "Active": "Active", "Completed": "Completed", "Cancelled": "Cancelled" },
+  "TreatmentPlanItemStatus": { "Pending": "Pending", "InProgress": "In progress", "Completed": "Completed", "Skipped": "Skipped" },
+  "InvoiceStatus": { "Draft": "Draft", "Issued": "Issued", "PartiallyPaid": "Partially paid", "Paid": "Paid", "Cancelled": "Cancelled" },
+  "PaymentMethod": { "Cash": "Cash", "Card": "Card", "Transfer": "Transfer", "Insurance": "Insurance" },
+  "AuditAction": { "Created": "Created", "Updated": "Updated", "Deleted": "Deleted" }
+}

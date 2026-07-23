@@ -1,0 +1,96 @@
+{
+  "common": {
+    "appName": "AEspejo Clínica",
+    "save": "Guardar", "cancel": "Cancelar", "delete": "Eliminar", "edit": "Editar",
+    "create": "Nuevo", "search": "Buscar...", "actions": "Acciones", "loading": "Cargando...",
+    "confirmDelete": "¿Eliminar este registro?", "yes": "Sí", "no": "No",
+    "logout": "Cerrar sesión", "language": "Idioma", "noData": "Sin registros",
+    "page": "Página", "of": "de", "previous": "Anterior", "next": "Siguiente",
+    "includeInactive": "Incluir inactivos", "active": "Activo", "inactive": "Inactivo",
+    "required": "Requerido", "add": "Agregar", "remove": "Quitar",
+    "close": "Cerrar", "dismissNotification": "Descartar notificación",
+    "closeSidebar": "Cerrar menú lateral", "toggleSidebar": "Alternar menú lateral"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al panel",
+    "goBack": "Volver"
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "message": "Ocurrió un error inesperado. Intenta recargar la página.",
+    "retry": "Reintentar"
+  },
+  "crud": {
+    "emptyMessage": "No hay registros. Crea uno para empezar.",
+    "createNew": "Crear nuevo",
+    "unsavedChanges": "Tienes cambios sin guardar",
+    "createSuccess": "Registro creado correctamente",
+    "updateSuccess": "Registro actualizado correctamente",
+    "deleteSuccess": "Registro eliminado correctamente",
+    "discardTitle": "Descartar cambios",
+    "discardMessage": "Tienes cambios sin guardar. ¿Seguro que quieres cerrar?",
+    "discard": "Descartar",
+    "keepEditing": "Seguir editando",
+    "deleteTitle": "Eliminar registro",
+    "deleteConfirmNamed": "¿Seguro que quieres eliminar \"{{name}}\"? Esta acción no se puede deshacer.",
+    "deleteConfirm": "¿Seguro que quieres eliminar este registro? Esta acción no se puede deshacer."
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Configura los datos y la imagen de tu clínica",
+    "logo": "Logo de la clínica",
+    "uploadLogo": "Subir logo",
+    "clinicName": "Nombre de la clínica",
+    "clinicNamePlaceholder": "Nombre de tu clínica",
+    "nameRequired": "El nombre de la clínica es obligatorio",
+    "saveSuccess": "Configuración guardada correctamente",
+    "saveError": "Error al guardar la configuración",
+    "saveChanges": "Guardar cambios",
+    "saving": "Guardando"
+  },
+  "login": {
+    "title": "Iniciar sesión", "subtitle": "Accede a tu clínica",
+    "email": "Correo", "password": "Contraseña", "submit": "Entrar",
+    "error": "Credenciales inválidas"
+  },
+  "nav": {
+    "dashboard": "Inicio",
+    "groupOrg": "Organización", "branches": "Sedes", "rooms": "Consultorios", "users": "Usuarios", "professionals": "Profesionales",
+    "groupPatients": "Pacientes", "patients": "Pacientes", "patientAllergies": "Alergias", "medicalConditions": "Condiciones médicas", "odontograms": "Odontogramas", "toothRecords": "Piezas dentales",
+    "groupClinical": "Clínico", "appointments": "Citas", "appointmentDetails": "Detalles de cita", "treatmentPlans": "Planes de tratamiento", "treatmentPlanItems": "Ítems de plan",
+    "groupBilling": "Facturación", "invoices": "Facturas", "payments": "Pagos",
+    "groupCatalog": "Catálogo", "services": "Servicios",
+    "groupSystem": "Sistema", "auditLogs": "Auditoría", "settings": "Configuración"
+  },
+  "fields": {
+    "name": "Nombre", "address": "Dirección", "phone": "Teléfono", "email": "Correo", "isActive": "Activo",
+    "branchId": "Sede", "branchName": "Sede", "roomId": "Consultorio", "patientId": "Paciente", "professionalId": "Profesional",
+    "serviceId": "Servicio", "userId": "Usuario", "invoiceId": "Factura", "odontogramId": "Odontograma",
+    "code": "Código", "defaultPrice": "Precio base", "firstName": "Nombres", "lastName": "Apellidos",
+    "password": "Contraseña", "role": "Rol", "preferredLanguage": "Idioma", "dateOfBirth": "Fecha de nacimiento",
+    "gender": "Género", "documentType": "Tipo de documento", "documentNumber": "Nº de documento",
+    "bloodType": "Tipo de sangre", "emergencyContactName": "Contacto de emergencia", "emergencyContactPhone": "Tel. de emergencia",
+    "notes": "Notas", "substance": "Sustancia", "severity": "Severidad", "licenseNumber": "Matrícula",
+    "specialty": "Especialidad", "color": "Color", "toothNumber": "Pieza (FDI)", "surface": "Superficie",
+    "status": "Estado", "scheduledAt": "Fecha y hora", "durationMinutes": "Duración (min)", "cancelReason": "Motivo de cancelación",
+    "quantity": "Cantidad", "unitPrice": "Precio unitario", "estimatedPrice": "Precio estimado", "title": "Título",
+    "description": "Descripción", "appointmentId": "Cita", "treatmentPlanId": "Plan", "appointmentDetailId": "Detalle de cita",
+    "invoiceNumber": "Nº de factura", "issueDate": "Fecha de emisión", "totalAmount": "Total", "paidAmount": "Pagado",
+    "amount": "Monto", "method": "Método", "paidAt": "Fecha de pago", "reference": "Referencia",
+    "category": "Categoría", "languageCode": "Idioma", "createdAt": "Creado", "tableName": "Tabla", "recordId": "Registro", "action": "Acción", "changedAt": "Fecha"
+  },
+  "UserRole": { "Admin": "Administrador", "Dentist": "Odontólogo", "Assistant": "Asistente", "Receptionist": "Recepcionista" },
+  "Gender": { "Male": "Masculino", "Female": "Femenino", "Other": "Otro" },
+  "DocumentType": { "NationalId": "Cédula/CI", "Passport": "Pasaporte", "Other": "Otro" },
+  "AllergySeverity": { "Mild": "Leve", "Moderate": "Moderada", "Severe": "Severa" },
+  "ToothSurface": { "Buccal": "Vestibular", "Lingual": "Lingual", "Mesial": "Mesial", "Distal": "Distal", "Occlusal": "Oclusal", "Full": "Completa" },
+  "ToothStatus": { "Healthy": "Sano", "Caries": "Caries", "Filled": "Obturado", "Extracted": "Extraído", "Crown": "Corona", "Implant": "Implante", "RootCanal": "Endodoncia", "Missing": "Ausente" },
+  "AppointmentStatus": { "Scheduled": "Agendada", "Confirmed": "Confirmada", "InProgress": "En sala", "Completed": "Atendida", "Cancelled": "Cancelada", "NoShow": "No asistió" },
+  "TreatmentPlanStatus": { "Draft": "Borrador", "Active": "Activo", "Completed": "Completado", "Cancelled": "Cancelado" },
+  "TreatmentPlanItemStatus": { "Pending": "Pendiente", "InProgress": "En progreso", "Completed": "Completado", "Skipped": "Omitido" },
+  "InvoiceStatus": { "Draft": "Borrador", "Issued": "Emitida", "PartiallyPaid": "Pago parcial", "Paid": "Pagada", "Cancelled": "Cancelada" },
+  "PaymentMethod": { "Cash": "Efectivo", "Card": "Tarjeta", "Transfer": "Transferencia", "Insurance": "Seguro" },
+  "AuditAction": { "Created": "Creado", "Updated": "Actualizado", "Deleted": "Eliminado" }
+}

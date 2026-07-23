@@ -1,0 +1,16 @@
+<Project>
+
+  <!-- Shared build settings for all C# projects. Conditioned to .csproj so the
+       JavaScript SDK project (AEspejo.Clinic.Client.esproj) is never affected. -->
+  <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.csproj'">
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <!-- Best-practice analyzers + build-enforced code style (violations surface as warnings). -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+</Project>

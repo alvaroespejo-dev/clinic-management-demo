@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AEspejo.Clinic.API.http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <!-- Pin a 2.9.0 (patched) para evitar la vulnerabilidad de Microsoft.OpenApi 2.0.0 transitivo -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.9.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.16.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AEspejo.Clinic.Infrastructure\AEspejo.Clinic.Infrastructure.csproj" />
+    <ProjectReference Include="..\AEspejo.Clinic.Master\AEspejo.Clinic.Master.csproj" />
+    <ProjectReference Include="..\AEspejo.Clinic.Application\AEspejo.Clinic.Application.csproj" />
+  </ItemGroup>
+
+</Project>
