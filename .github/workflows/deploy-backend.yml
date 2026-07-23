@@ -1,0 +1,45 @@
+name: Deploy Backend (ClinicDemoApi)
+
+# Builds and deploys the ASP.NET Core API to the Azure Web App "ClinicDemoApi"
+# (Windows, .NET 10) on every push to main.
+#
+# Required GitHub secret:
+#   AZUREAPPSERVICE_PUBLISHPROFILE_CLINICDEMOAPI
+#     -> Azure Portal > App Service "ClinicDemoApi" > Get publish profile (download and paste its XML).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/AEspejo.Clinic.API/**'
+      - 'src/AEspejo.Clinic.Application/**'
+      - 'src/AEspejo.Clinic.Domain/**'
+      - 'src/AEspejo.Clinic.Infrastructure/**'
+      - 'src/AEspejo.Clinic.Master/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Publish & deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://clinicdemoapi-accybtbjdfcvcce4.canadacentral-01.azurewebsites.net
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish
+        run: dotnet publish src/AEspejo.Clinic.API/AEspejo.Clinic.API.csproj -c Release -o ./publish
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ClinicDemoApi
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CLINICDEMOAPI }}
+          package: ./publish

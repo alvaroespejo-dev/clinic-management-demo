@@ -11,6 +11,8 @@
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-supported-CC2927?logo=microsoftsqlserver&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-supported-003B57?logo=sqlite&logoColor=white)
 
+**🌐 Live demo** — App: <https://blue-forest-0df195910.7.azurestaticapps.net> · API: <https://clinicdemoapi-accybtbjdfcvcce4.canadacentral-01.azurewebsites.net> · Login: `admin@demo.local` / `Admin12345`
+
 ---
 
 ## 📖 Overview
@@ -138,10 +140,13 @@ Axios · oxlint.
 ## 🚀 Getting Started
 
 ```bash
-git clone <repo-url>
-cd AEspejo.Clinic
+git clone https://github.com/alvaroespejo-dev/clinic-management-demo.git
+cd clinic-management-demo
 dotnet build
 ```
+
+> **Repository:** `alvaroespejo-dev/clinic-management-demo` · **Default branch:** `main`
+> (all pull requests and CI run against `main`).
 
 ### Option A — Run on SQLite (zero external dependencies)
 
@@ -237,10 +242,51 @@ npm run build                     # type-check + production build
 
 ---
 
+## ⚙️ CI/CD & Deployment
+
+Three GitHub Actions workflows automate build, test and deployment to Azure (region: Canada Central).
+
+| Workflow | File | Trigger | Purpose |
+| --- | --- | --- | --- |
+| **CI** | `ci.yml` | push / PR to `main` | Build + test backend · lint + build frontend |
+| **Deploy Backend** | `deploy-backend.yml` | push to `main` (backend paths) · manual | Publish API → Azure **Web App `ClinicDemoApi`** |
+| **Deploy Frontend** | `azure-static-web-apps-blue-forest-0df195910.yml` | push / PR to `main` | Build SPA → Azure **Static Web App `ClinicDemoClient`** (PR preview environments) |
+
+**Hosting**
+
+| Tier | Azure resource | OS / Stack | URL |
+| --- | --- | --- | --- |
+| Backend (API) | App Service `ClinicDemoApi` | Windows · .NET 10 | <https://clinicdemoapi-accybtbjdfcvcce4.canadacentral-01.azurewebsites.net> |
+| Frontend (SPA) | Static Web App `ClinicDemoClient` | Free plan | <https://blue-forest-0df195910.7.azurestaticapps.net> |
+
+**Required GitHub secrets**
+
+- `AZUREAPPSERVICE_PUBLISHPROFILE_CLINICDEMOAPI` — App Service publish profile (Portal → *ClinicDemoApi* → **Get publish profile**).
+- `AZURE_STATIC_WEB_APPS_API_TOKEN_BLUE_FOREST_0DF195910` — created automatically when the Static Web App was linked to the repo.
+
+**Backend App Settings** (set on `ClinicDemoApi` — production config lives in Azure, not in the repo):
+
+```
+Database__Provider = Sqlite
+ConnectionStrings__MasterConnection = Data Source=D:\home\data\master.db
+Seed__Enabled = true
+Jwt__Issuer = AEspejo.Clinic
+Jwt__Audience = AEspejo.Clinic.Client
+Jwt__SecretKey = <a long random secret, min. 32 chars>
+Jwt__ExpiryMinutes = 480
+Cors__Origins__0 = https://blue-forest-0df195910.7.azurestaticapps.net
+```
+
+**Frontend build variables** (already set in the SWA workflow `env:`): `VITE_API_URL` (the API URL) and
+`VITE_TENANT=demo` — the demo is single-tenant and its host subdomain isn't a tenant, so the tenant is forced.
+
+---
+
 ## 📁 Project structure
 
 ```
-AEspejo.Clinic/
+clinic-management-demo/
+├─ .github/workflows/                 # CI (build/test) + CD (Azure Web App & Static Web App)
 ├─ src/
 │  ├─ AEspejo.Clinic.Domain/          # Entities & enums (no dependencies)
 │  ├─ AEspejo.Clinic.Application/     # Services, DTOs, validators, Result<T>, Mapster
@@ -257,6 +303,33 @@ AEspejo.Clinic/
 **Domain entities:** Branch · Room · User · Professional · Patient · PatientAllergy · MedicalCondition ·
 Odontogram · ToothRecord · ServiceCatalog · ServiceCatalogTranslation · Appointment · AppointmentDetail ·
 TreatmentPlan · TreatmentPlanItem · Invoice · Payment · AuditLog · OrgConfig.
+
+---
+
+## 📝 Changelog
+
+### 2026-07 — Deployable portfolio demo
+
+- **Dual database provider (SQL Server + SQLite).** The engine is selected via `Database:Provider`; the whole
+  app runs on either, for both the master and every tenant database. A single
+  `Infrastructure/Persistence/DatabaseProvider.cs` (`DatabaseProviderExtensions`) centralises provider choice,
+  schema strategy (migrations on SQL Server · `EnsureCreated` on SQLite) and the SQLite data directory.
+- **SQLite storage compatibility.** A UTC-ticks value converter (applied only under SQLite) makes
+  `DateTimeOffset` columns sortable/comparable, so `ORDER BY` in the generic CRUD works on SQLite too.
+- **Local & Azure config.** SQLite is the default in Development (`appsettings.Development.json`); a dedicated
+  `sqlite` launch profile puts the `.db` files under `src/AEspejo.Clinic.API/.sqlite-data/`; seeding also runs
+  when `Seed:Enabled=true` so the non-Development Azure demo still seeds.
+- **CI/CD to Azure.** GitHub Actions: `ci.yml` (build + test backend, lint + build frontend),
+  `deploy-backend.yml` (→ App Service `ClinicDemoApi`) and `azure-static-web-apps-*.yml`
+  (→ Static Web App `ClinicDemoClient`, with PR preview environments).
+- **Demo data scripts.** `scripts/seed-demo-month.sql` (T-SQL) and `scripts/seed-demo-month.sqlite.sql`
+  (SQLite) seed ~1 month of realistic activity (patients, appointments, invoices, payments, plans).
+- **Single-tenant host support.** `VITE_TENANT` build-time override lets the SPA target a fixed tenant on
+  hosts whose subdomain isn't a tenant (e.g. the Azure Static Web App URL).
+- **UX fix.** The generic CRUD page no longer offers *Edit* for entities that have no editable fields
+  (e.g. odontograms), which previously opened an empty dialog; create/delete remain available.
+- **i18n hardening.** Remaining hardcoded strings (icon `aria-label`s, the 404 & error pages) were moved to
+  i18n keys in both locales, and the `AuditAction` enum group was added.
 
 ---
 

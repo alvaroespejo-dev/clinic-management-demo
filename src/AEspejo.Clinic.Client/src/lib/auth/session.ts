@@ -35,10 +35,15 @@ export function clearSession() {
   localStorage.removeItem(USER_KEY)
 }
 
-/** Active tenant: comes from VITE_DEV_TENANT in dev; derived from the subdomain in prod. */
+/**
+ * Active tenant: an explicit build-time override (VITE_TENANT for any env, or VITE_DEV_TENANT for dev)
+ * wins; otherwise it's derived from the subdomain (e.g. demo.example.com -> "demo").
+ * The override is needed for single-tenant hosts whose subdomain isn't a tenant (e.g. an Azure
+ * Static Web App at blue-forest-xxxx.azurestaticapps.net).
+ */
 export function getTenant(): string {
-  const devTenant = import.meta.env.VITE_DEV_TENANT as string | undefined
-  if (devTenant) return devTenant
+  const configured = (import.meta.env.VITE_TENANT ?? import.meta.env.VITE_DEV_TENANT) as string | undefined
+  if (configured) return configured
   const host = window.location.hostname
   const parts = host.split('.')
   return parts.length >= 2 ? parts[0] : ''
